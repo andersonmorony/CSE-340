@@ -1,6 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 /******* Change Box Model ***************/
 *,
 *:before,
 *:after {
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+
+
+/* Header */
+header {
+  width: 100%;
+  height: 40px;
+  padding: 8px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+header a {
+  color: #190A05;
+  text-decoration: none;
+}
+
+
+/* Navigation */
+nav {
+  width: 100%;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+
+  display: flex;
+  height: 50px;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #190A05;
+  color: #f2f2f2;
+}
+
+nav li {
+  padding: 8px 0px;
+}
+nav li:hover {
+   text-decoration: underline;
+}
+
+/* Content Main */
+
+.content {
+  display: grid;
+  grid-template-rows: auto;
+}
+
+.content .banner {
+  width: 100%;
+  height: 400px;
+
+  display: grid;
+
+  background-image: URL("/images/vehicles/DeLorean-Alpha5_3.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.content .banner .content-banner {
+  color: #f2f2f2;
+  background-color: #00000080;
+  text-align: center;
+
+  padding: 0px 8px;
+  padding-top: 40px;
+}
+
+.btn-action {
+  color: #f2f2f2;
+  background: #870000;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #190A05, #870000);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #190A05, #870000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  width: 150px;
+  height: 44px;
+  margin-top: 16px;
+  border: none;
+  font-weight: 600;
+}
+
+
+.content .services {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.content .services .upgrades {
+  margin-top: 24px;
+  padding: 0px 16px;
+}
+.content .services h1 {
+  color: #190A05;
+  text-align: center;
+  margin-bottom: 24px;
+}
+.content .services .upgrades .items {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.content .services .upgrades .items .upgrade-item {
+  display: grid;
+  grid-template-rows: 1fr 40px;
+  justify-items: center;
+  gap: 8px;
+  padding: 16px;
+
+  background-color: #eee;
+}
+.content .services .upgrades .items .upgrade-item  a {
+  color: #190A05;
+  text-decoration: none;
+}
+
+/* Reviews */
+
+.content .services .reviews {
+  margin-top: 24px;
+  padding: 0px 16px;
+  grid-row: 1;
+}
+
+.content .services .reviews ul {
+  list-style: none;
+  padding: 0;
+}
+
+.content .services .reviews ul li {
+  padding: 8px 0px;
+}
+
+footer {
+  color: #f2f2f2;
+  background-color: #190A05;
+  margin-top: 40px;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

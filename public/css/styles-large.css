@@ -1,0 +1,11 @@
+@media only screen and (min-width: 840px) {
+    .content .banner {
+        height: 500px;
+    }
+    .content .services {
+        grid-template-columns: 1fr 1fr;
+    }
+    .content .services .reviews {
+        grid-column: 2;
+    }
+  }

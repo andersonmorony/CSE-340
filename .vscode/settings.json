@@ -1,3 +1,34 @@
 {
-    "liveServer.settings.port": 5501
+    "liveServer.settings.port": 5501,
+    "sqltools.connections": [
+        {
+            "pgOptions": {
+                "ssl": {
+                    "rejectUnauthorized": true
+                }
+            },
+            "previewLimit": 50,
+            "server": "dpg-crr9dhij1k6c73ebsd3g-a.oregon-postgres.render.com",
+            "port": 5432,
+            "askForPassword": true,
+            "driver": "PostgreSQL",
+            "name": "CSE-340",
+            "database": "cse340db_uus1",
+            "username": "admin"
+        },
+        {
+            "pgOptions": {
+                "ssl": {
+                    "rejectUnauthorized": true
+                }
+            },
+            "previewLimit": 50,
+            "server": "dpg-crrl88t6l47c73cktfn0-a.oregon-postgres.render.com",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "CSE-340-v2",
+            "database": "cse340db_5jqo",
+            "username": "admin"
+        }
+    ]
 }

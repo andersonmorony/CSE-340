@@ -11,4 +11,8 @@
     .content .services .reviews {
         grid-column: 2;
     }
+
+    #inv-display {
+        grid-template-columns: 1fr 1fr;
+    }
   }

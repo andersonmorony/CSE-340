@@ -167,7 +167,7 @@ footer {
 /* Inventory types */
 #inv-display {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 16px;
   padding: 16px;
 }
@@ -185,3 +185,18 @@ footer {
   text-decoration: none;
   color: #6c0101;
 } 
+
+/* Error page */
+#content-error {
+  display: grid;
+  grid-template-rows: minmax(500px) 40px 40px;
+
+  padding: 16px;
+  justify-items: center;
+  justify-content: center;
+  gap: 16px;
+  height: 80vh;
+}
+#content-error img {
+  width: 100%;
+}

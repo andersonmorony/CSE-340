@@ -23,7 +23,7 @@ app.set("layout", "./layouts/layout")
  * Routes
  *************************/
 app.use(static)
-app.use("/inv", invetoryRouter)
+app.use("/inv", utilities.handleErrors(invetoryRouter))
 
 /* ***********************
  * Local Server Information

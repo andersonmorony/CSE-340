@@ -15,4 +15,11 @@
     #inv-display {
         grid-template-columns: 1fr 1fr;
     }
+
+    /* Details page */
+
+    #inventory-details {
+        padding: 0;
+        grid-template-columns: 500px 1fr;
+    }
   }

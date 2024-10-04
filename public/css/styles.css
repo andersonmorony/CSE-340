@@ -60,6 +60,7 @@ nav li a {
 
 .content {
   display: grid;
+  min-height: 80vh;
   grid-template-rows: auto;
 }
 
@@ -199,4 +200,56 @@ footer {
 }
 #content-error img {
   width: 100%;
+}
+
+
+
+/* Details page */
+
+.title-page {
+  padding: 20px;
+}
+
+#inventory-details {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: minmax(400px);
+  padding: 16px;
+}
+
+#inventory-details h1, #inventory-details  h2 {
+  color: #6c0101;
+}
+
+#inventory-details img {
+  width: 100%;
+}
+#inventory-details .content-details {
+  display: grid;
+}
+#inventory-details .content-details .header {
+  background-color: #f5f5f5;
+  padding: 8px;
+}
+#inventory-details .content-details .details {
+  display: grid;
+  padding: 8px 0;
+  margin-top: 40px;
+}
+
+#inventory-details .content-details .details table td {
+  padding: 8px;
+}
+#inventory-details .content-details .details table tr:nth-child(2n){
+  background-color: #87000031;
+}
+#inventory-details .content-details .details table tr:nth-child(odd){
+  background-color: #afafaf7a;
+}
+
+#inventory-details .content-details .details a {
+  color: #6c0101;
+  font-weight: 500;
 }

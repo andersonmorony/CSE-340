@@ -5,6 +5,9 @@
 /* ***********************
  * Require Statements
  *************************/
+
+const session = require("express-session")
+const pool = require('./database/')
 const express = require("express")
 const expressLayouts = require("express-ejs-layouts")
 const env = require("dotenv").config()
@@ -12,6 +15,7 @@ const app = express()
 const static = require("./routes/static")
 const baseController = require("./controllers/baseController")
 const invetoryRouter = require("./routes/inventoryRoute")
+const accountRouter = require("./routes/accountRoute")
 const utilities = require('./utilities')
 
 // View engine and templates
@@ -20,10 +24,31 @@ app.use(expressLayouts)
 app.set("layout", "./layouts/layout")
 
 /* ***********************
+ * Middleware
+ * ************************/
+app.use(session({
+  store: new (require('connect-pg-simple')(session))({
+    createTableIfMissing: true,
+    pool,
+  }),
+  secret: process.env.SESSION_SECRET,
+  resave: true,
+  saveUninitialized: true,
+  name: 'sessionId',
+}))
+// Express Messages Middleware
+app.use(require('connect-flash')())
+app.use(function(req, res, next){
+  res.locals.messages = require('express-messages')(req, res)
+  next()
+})
+
+/* ***********************
  * Routes
  *************************/
 app.use(static)
 app.use("/inv", utilities.handleErrors(invetoryRouter))
+app.use("/account", utilities.handleErrors(accountRouter))
 
 /* ***********************
  * Local Server Information

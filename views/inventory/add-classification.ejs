@@ -18,7 +18,7 @@
                 <label for="">Classification name</label>
                 <input type="text" name="classification_name" id="classification_name" pattern="^[a-zA-Z0-9_]+$" 
                 title="The classification name must not contain spaces or special characters. Only letters, numbers, and underscores (_) are allowed." 
-                required />
+                required value="<%= locals.classification_name %>"/>
                 <p class="msg-error">The classification name must not contain spaces or special characters. Only letters, numbers, and underscores (_) are allowed.</p>
             </div>
             <div class="form-submit">

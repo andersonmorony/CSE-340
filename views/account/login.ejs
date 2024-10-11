@@ -16,11 +16,11 @@
     <form id="loginForm" action="/account/login" method="post">
         <div class="form-control">
             <label for="account_email">Email</label>
-            <input type="email" name="account_email" id="account_email" required placeholder="mail@mail.com">
+            <input type="email" name="account_email" id="account_email" required placeholder="mail@mail.com" value="<%= locals.account_email %>">
         </div>
         <div class="form-control">
             <label for="account_password">Password</label>
-            <input type="password" name="account_password" id="account_password" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$">
+            <input type="password" name="account_password" id="account_password" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$" >
             <div class="password-required">
                 <span>Passwords must be: </span> 
                 <ul>

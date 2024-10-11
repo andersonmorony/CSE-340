@@ -8,7 +8,9 @@ validate.ClassificationRules = () => {
       .trim()
       .escape()
       .notEmpty()
-      .withMessage("Provide a classification name valid"),
+      .withMessage("Provide a classification name valid")
+      .matches(/^[a-zA-Z0-9]+$/)
+      .withMessage("Make must contain only alphanumeric characters without spaces or special characters"),
   ];
 };
 

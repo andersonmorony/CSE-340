@@ -191,6 +191,11 @@ footer {
   color: #6c0101;
 }
 
+#inv-display li a img {
+  width: 100%;
+  max-width: 200px;
+}
+
 /* Error page */
 #content-error {
   display: grid;
@@ -277,7 +282,7 @@ footer {
   display: grid;
   grid-template-columns: 1fr;
 }
-.form form .form-control input {
+.form form .form-control input, .form form .form-control select {
   width: 250px;
   height: 40px;
 
@@ -393,4 +398,9 @@ footer {
   background-color: #c34a4a6b;
   padding: 20px;
   color: rgb(128, 0, 13);
+}
+
+.col-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }

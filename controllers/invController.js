@@ -83,4 +83,67 @@ invCont.CreateClassification = async function (req, res, next) {
   }
 };
 
+
+// Add inventory
+invCont.buildAddInventory = async function(req, res, next) {
+  const navHtml = await utilities.getNav()
+  const selectElement = await utilities.buildClassificationList();
+  res.render("./inventory/add-inventory", {
+    title: "Add new inventory",
+    navHtml,
+    errors: null,
+    selectElement
+  })
+}
+
+invCont.CreateInventory = async function(req, res, next) {
+  let navHtml = await utilities.getNav();
+  const selectElement = await utilities.buildClassificationList();
+  const {
+    inv_make,
+    inv_model,
+    inv_year,
+    inv_description,
+    inv_image,
+    inv_thumbnail,
+    inv_price,
+    inv_miles,
+    inv_color,
+    classification_id,
+  } = req.body;
+
+  const result = await invModel.CreateInventory(
+    inv_make,
+    inv_model,
+    inv_year,
+    inv_description,
+    inv_image,
+    inv_thumbnail,
+    inv_price,
+    inv_miles,
+    inv_color,
+    classification_id);
+
+    if(result) {
+      req.flash(
+        "notice",
+        `Congratulations, ${inv_make} was created.`
+      );
+      res.status(201).render("./inventory/management", {
+        title: "Management",
+        navHtml,
+        errors: null,
+        selectElement,
+      });
+    } else {
+      req.flash("notice", "Sorry, the registration failed.");
+      res.status(501).render("./inventory/management", {
+        title: "Management",
+        navHtml,
+        errors: null,
+        selectElement
+      });
+    }
+}
+
 module.exports = invCont;

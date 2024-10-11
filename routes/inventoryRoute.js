@@ -17,4 +17,12 @@ router.post("/add-classification",
     validate.checkClassificationRules,
     utilities.handleErrors(invController.CreateClassification))
 
+// add inventory
+router.get("/add-inventory", utilities.handleErrors(invController.buildAddInventory))
+router.post("/add-inventory",
+    regValidate.inventoryRules(),
+    regValidate.checkInventoryRules,
+     utilities.handleErrors(invController.CreateInventory))
+
+
 module.exports = router

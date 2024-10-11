@@ -1,0 +1,61 @@
+<% if (title) { %>
+    <h1><%= title %></h1>
+    <% } else { res.redirect('/') } %>
+    
+    <%- messages() %>
+
+    <% if (errors) { %>
+        <ul class="error">
+       <% errors.array().forEach(error => { %>
+         <li><%= error.msg %></li>
+      <%  }) %>
+       </ul>
+    <% } %>
+    
+    <div id="form-classification" class="form">
+        <form action="/inv/add-inventory" method="post">
+            <div class="form-control">
+                <label for="inv_make">Make</label>
+                <input type="text" name="inv_make" id="inv_make" required />
+            </div>
+            <div class="form-control">
+                <label for="inv_model">Model</label>
+                <input type="text" name="inv_model" id="inv_model" required />
+            </div>
+            <div class="form-control">
+                <label for="inv_modal">Year</label>
+                <input type="text" name="inv_year" id="inv_year" required />
+            </div>
+            <div class="form-control">
+                <label for="">Description</label>
+                <textarea name="inv_description" id="inv_description" required cols="4" rows="6"></textarea>
+            </div>
+            <div class="form-control">
+                <label for="inv_image">Image</label>
+                <input type="text" name="inv_image" id="inv_image" required/>
+            </div>
+            <div class="form-control">
+                <label for="inv_thumbnail">Thumbnail</label>
+                <input type="text" name="inv_thumbnail" id="inv_thumbnail" required />
+            </div>
+            <div class="form-control">
+                <label for="inv_price">Price</label>
+                <input type="number" name="inv_price" id="inv_price" required/>
+            </div>
+            <div class="form-control">
+                <label for="inv_miles">Miles</label>
+                <input type="number" name="inv_miles" id="inv_miles" required>
+            </div>
+            <div class="form-control">
+                <label for="inv_color">Miles</label>
+                <input type="text" name="inv_color" id="inv_color" required>
+            </div>
+            <div class="form-control">
+                <label for="inv_color">Classification</label>
+                <%- selectElement %>
+            </div>
+            <div class="form-submit">
+                <button type="submit">Save</button>
+            </div>
+        </form>
+    </div>

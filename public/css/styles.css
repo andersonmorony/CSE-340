@@ -9,6 +9,10 @@
   font-family: "Poppins", sans-serif;
 }
 
+a {
+  color: #fff;
+}
+
 /* Header */
 header {
   width: 100%;

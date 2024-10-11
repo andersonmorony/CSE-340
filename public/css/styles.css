@@ -256,35 +256,35 @@ footer {
 
 /* Login view */
 
-.content-login {
+.content-login, .content-register {
   margin: 0 auto;
   width: 80%;
   height: 80vh;
 }
 
-.content-login form {
+.form form, .content-register form {
   display: grid;
   justify-content: center;
   gap: 8px;
 }
 
-.content-login form .form-control {
+.form form .form-control {
   display: grid;
   grid-template-columns: 1fr;
 }
-.content-login form .form-control input {
+.form form .form-control input {
   width: 250px;
   height: 40px;
 
   padding: 4px;
 }
-.content-login form .form-submit {
+.form form .form-submit {
   display: grid;
   justify-content: center;
   justify-items: center;
   gap: 16px;
 }
-.content-login form .form-submit button {
+.form form .form-submit button {
   width: 150px;
   height: 40px;
 
@@ -292,7 +292,24 @@ footer {
   color: #f2f2f2;
   cursor: pointer;
 } 
-.content-login form .form-submit a {
+.form form .form-submit a {
   color: #870000;
   text-decoration: none;
 }
+
+/* regiter */
+
+.password-required {
+  margin-bottom: 10px;
+}
+  .password-required ul {
+    padding: 8px 16px;
+  }
+  .password-required li, .password-required span {
+    font-size: 12px;
+    color: #870000;
+  }
+
+  #account_password:valid + .password-required {
+    display: none !important;
+  }

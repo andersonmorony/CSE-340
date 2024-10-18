@@ -3,15 +3,29 @@
 <% } else { res.redirect('/') } %>
 
 <%- messages() %>
-
 <div class="content-management">
     <div class="card">
         <h1>Add New Classification</h1>
         <a href="/inv/add-classification">Create</a>
     </div>
-
+    
     <div class="card">
         <h1>Add New Inventory</h1>
         <a href="/inv/add-inventory">Create</a>
     </div>
 </div>
+
+<div class="manage-inventory">
+    <h2>Manage Inventory</h2>
+    <p>Select one of Classification list to see each within item</p>
+    <div class="form-control">
+        <label for="classificationList">Classification</label>
+        <%- selectElement %>
+    </div>
+    <table id="inventoryDisplay" class="table"></table>
+</div>
+
+<noscript>JavaScript must be enabled to use this page.</noscript>
+
+
+<script src="../../js/inventory.js"></script>

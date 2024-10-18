@@ -337,7 +337,6 @@ footer {
   gap: 16px;
 
   width: 80%;
-  height: 80vh;
   margin: 50px auto;
 }
 #form-classification .form-control, #form-classification .form-control input
@@ -407,4 +406,38 @@ footer {
 .col-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+
+/* Management */
+#inventoryDisplay a{
+  color: #6c0101;
+}
+
+.table {
+  width: 100%;
+  margin-top: 70px;
+}
+.table td{
+  padding: 10px;
+  border: 1px solid #EEE;
+}
+
+.manage-inventory {
+  width: 90%;
+  margin: 0 auto;
+}
+.manage-inventory .table th {
+  background-color: #6c0101;
+  border: 1px solid #eee;
+  color: #f2f2f2;
+  padding: 10px;
+}
+
+.manage-inventory .form-control {
+  display: grid;
+  width: 100%;
+  margin: 0 auto;
+}
+.manage-inventory  .form-control {
+  height: 40px;
 }

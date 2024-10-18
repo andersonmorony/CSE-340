@@ -116,7 +116,9 @@ validate.checkRegLoginDdata = async (req, res, next) => {
       navHtml,
       account_email
     })
+    return
   }
+  next()
 }
   
   module.exports = validate

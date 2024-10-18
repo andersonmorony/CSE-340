@@ -161,6 +161,8 @@ Util.checkJWTToken = (req, res, next) => {
      if (err) {
       req.flash("Please log in")
       res.clearCookie("jwt")
+      res.locals.accountData = null
+      res.locals.loggedin = false
       return res.redirect("/account/login")
      }
      res.locals.accountData = accountData
@@ -168,6 +170,8 @@ Util.checkJWTToken = (req, res, next) => {
      next()
     })
   } else {
+    res.locals.accountData = null
+    res.locals.loggedin = false
    next()
   }
  }
@@ -176,12 +180,23 @@ Util.checkJWTToken = (req, res, next) => {
  *  Check Login
  * ************************************ */
  Util.checkLogin = (req, res, next) => {
-  if (res.locals.loggedin) {
+  if (res.locals.loggedin) { 
     next()
   } else {
     req.flash("notice", "Please log in.")
     return res.redirect("/account/login")
   }
  }
+
+ Util.onlyEmpoyeeAdmin = (req, res, next) => {
+  if(res.locals.accountData && res.locals.accountData.account_type !== 'Client') {
+    next()
+  } else {
+    req.flash("notice","This must NOT be used when delivering the classification or detail views as they are meant for site visitors who may not be logged in.")
+    return res.redirect("/account/login")
+  }
+ }
+
+
 
 module.exports = Util;

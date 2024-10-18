@@ -56,7 +56,7 @@ app.use(utilities.checkJWTToken)
  * Routes
  *************************/
 app.use(static)
-app.use("/inv", utilities.handleErrors(invetoryRouter))
+app.use("/inv", utilities.onlyEmpoyeeAdmin, utilities.handleErrors(invetoryRouter))
 app.use("/account", utilities.handleErrors(accountRouter))
 
 /* ***********************

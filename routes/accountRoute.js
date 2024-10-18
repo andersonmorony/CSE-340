@@ -24,6 +24,6 @@ router.post(
 );
 
 //default router
-router.get("/", accountController.accountLoged)
+router.get("/", utilities.checkLogin, utilities.handleErrors(accountController.accountLoged))
 
 module.exports = router;

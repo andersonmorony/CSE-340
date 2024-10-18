@@ -32,4 +32,9 @@ router.post("/edit/", regValidate.UpdateInventoryRules(),
   utilities.handleErrors(invController.updateInventory));
 
 
+// Delete router
+router.get("/Delete/:inv_id", utilities.handleErrors(invController.deleteInventoryView))
+
+router.post("/Delete", utilities.handleErrors(invController.deleteInventory))
+
 module.exports = router

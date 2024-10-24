@@ -1,5 +1,6 @@
 const invModel = require("../models/inventory-model");
 const utilities = require("../utilities/");
+const reviewModel = require("../models/review-model");
 
 const invCont = {};
 
@@ -25,6 +26,8 @@ invCont.buildByInventoryId = async function (req, res, next) {
   const inventory_id = req.params.inventory_id;
   const data = await invModel.getInventoryById(inventory_id);
   const grid = utilities.buildInventoryDetails(data);
+  const reviewGrid = await utilities.buildReviewGrid(inventory_id);
+
   let navHtml = await utilities.getNav();
   const title = data
     ? `${data?.inv_make} ${data?.inv_model}`
@@ -33,6 +36,10 @@ invCont.buildByInventoryId = async function (req, res, next) {
     title,
     navHtml,
     grid,
+    inventory_id,
+    review_text: "",
+    reviewGrid,
+    errors: null
   });
 };
 

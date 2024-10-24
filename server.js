@@ -16,6 +16,7 @@ const static = require("./routes/static")
 const baseController = require("./controllers/baseController")
 const invetoryRouter = require("./routes/inventoryRoute")
 const accountRouter = require("./routes/accountRoute")
+const reviewRouter = require("./routes/reviewRoute")
 const utilities = require('./utilities')
 const bodyParser = require("body-parser")
 const cookieParser = require("cookie-parser")
@@ -56,8 +57,9 @@ app.use(utilities.checkJWTToken)
  * Routes
  *************************/
 app.use(static)
-app.use("/inv", utilities.onlyEmpoyeeAdmin, utilities.handleErrors(invetoryRouter))
+app.use("/inv", utilities.handleErrors(invetoryRouter))
 app.use("/account", utilities.handleErrors(accountRouter))
+app.use("/review", utilities.handleErrors(reviewRouter))
 
 /* ***********************
  * Local Server Information

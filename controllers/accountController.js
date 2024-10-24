@@ -127,10 +127,13 @@ async function accountLogin(req, res) {
 * *************************************** */
 async function accountLoged(req, res, next) {
   let navHtml = await utilities.getNav()
+  const account_id = res.locals.accountData.account_id;
+  const myReviews = await utilities.buildReviewGridOnManagement(account_id)
   res.render("account/index", {
     title: "Home",
     navHtml,
-    errors: null
+    errors: null,
+    myReviews
   })
 }
 

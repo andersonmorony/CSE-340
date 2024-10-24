@@ -1,4 +1,5 @@
 const invModel = require("../models/inventory-model");
+const reviewModel = require("../models/review-model")
 const jwt = require("jsonwebtoken")
 require("dotenv").config()
 
@@ -197,6 +198,67 @@ Util.checkJWTToken = (req, res, next) => {
   }
  }
 
+/* **************************************
+ * Build the review view HTML
+ * ************************************ */
+Util.buildReviewGrid = async (inv_id) => {
+  const reviews = await reviewModel.getReviewByInvId(inv_id);
+  const items = reviews.map((review) => {
+    return `
+      <li>
+        ${review.account_firstname} wrote on ${Util.formatDate(review.review_date)}
+        <p>
+          ${review.review_text}
+        </p>
+      </li>
+    `;
+  }).join(''); 
 
+  const HTML = `
+      <div class="reviews">
+        <h2>Customer Reviews</h2>
+        <ul>${items.length > 0 ? items : "<p>Be the first to write a review</p>"}</ul>
+      </div>`;
+  return HTML;
+}
+
+Util.formatDate = (date) => {
+  const formattedDate = date.toLocaleDateString('en-US', { 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric' 
+});
+
+return formattedDate;
+}
+
+
+/* **************************************
+ * Build the review view managment
+ * ************************************ */
+Util.buildReviewGridOnManagement = async (account_id) => {
+  const reviews = await reviewModel.getReviewByAccount_id(account_id);
+  const HTML = reviews.map((review) => {
+    return `
+      <div class="reviews-items">
+        <p>Reviewd the  ${review.inv_year} ${review.inv_make} ${review.inv_model} on ${Util.formatDate(review.review_date)}</p>
+        <a href="/review/edit/${review.review_id}">Edit</a>
+        <a href="/review/delete/${review.review_id}">Delete</a>
+      </div>
+    `;
+  }).join(''); 
+
+  return HTML;
+}
+
+Util.formatDate = (date) => {
+  const formattedDate = date.toLocaleDateString('en-US', { 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric' 
+});
+
+return formattedDate;
+}
 
 module.exports = Util;

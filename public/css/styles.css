@@ -454,3 +454,42 @@ footer {
   font-size: 12px;
   color: #666666;
 }
+
+
+/* Review */
+.review-message-login {
+  padding: 20px 40px;
+  margin: 0 auto;
+  margin-top: 70px;
+  width: 70%;
+  background-color: #f5e0696b;
+}
+.review-message-login a{
+  color: #6c0101;
+  text-decoration: underline;
+}
+
+.reviews {
+  margin-top: 40px;
+  padding: 0 40px;
+}
+.reviews p {
+  padding-top: 8px;
+  padding-bottom: 16px;
+  border-top: 2px solid #6c0101;
+}
+.reviews a {
+  background-color: #870000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+.reviews a:hover {
+  background-color: #6c0101;
+  transition: .2s;
+}
+.reviews-items {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 8px;
+}

@@ -238,10 +238,10 @@ return formattedDate;
  * ************************************ */
 Util.buildReviewGridOnManagement = async (account_id) => {
   const reviews = await reviewModel.getReviewByAccount_id(account_id);
-  const HTML = reviews.map((review) => {
+  const HTML = reviews.map((review, index) => {
     return `
       <div class="reviews-items">
-        <p>Reviewd the  ${review.inv_year} ${review.inv_make} ${review.inv_model} on ${Util.formatDate(review.review_date)}</p>
+        <p>${index + 1}. Reviewd the  ${review.inv_year} ${review.inv_make} ${review.inv_model} on ${Util.formatDate(review.review_date)}</p>
         <a href="/review/edit/${review.review_id}">Edit</a>
         <a href="/review/delete/${review.review_id}">Delete</a>
       </div>

@@ -1,0 +1,36 @@
+<% if (title) { %>
+    <h1><%= title %></h1>
+    <% } else { res.redirect('/') } %>
+    
+    <%- messages() %>
+
+    <% if (errors) { %>
+        <ul class="error">
+       <% errors.array().forEach(error => { %>
+         <li><%= error.msg %></li>
+      <%  }) %>
+       </ul>
+    <% } %>
+    
+    <div id="form-classification" class="form">
+        <form action="/review/edit" method="post">
+            <div class="form-control">
+                <label for="review_date">Review date</label>
+                <input type="text" name="review_date" readonly id="review_date" required value="<%= review_dateFormated %>" />
+            </div>
+            <div class="form-control">
+                <label for="inv_model">Review</label>
+                <textarea name="review_text" id="review_text" cols="30" rows="10">
+                    <%= review_text %>
+                </textarea>
+            </div>
+            <input type="hidden" name="review_id"
+                <% if(review_id) { %> value="<%= review_id %>"
+            <% } %>>
+            <div class="form-submit">
+                <button type="submit" disabled>Update</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="../../js/inv-update.js"></script>

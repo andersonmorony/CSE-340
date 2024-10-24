@@ -343,6 +343,10 @@ footer {
 {
   width: 500px;
 }
+#form-classification button:disabled {
+  background-color: #00000080;
+  cursor: not-allowed;
+}
 
 .content-management .card {
   display: grid;
@@ -478,6 +482,9 @@ footer {
   padding-bottom: 16px;
   border-top: 2px solid #6c0101;
 }
+.reviews .reviews-items p {
+  border-top: none;
+}
 .reviews a {
   background-color: #870000;
   padding: 8px 16px;
@@ -492,4 +499,5 @@ footer {
   grid-template-columns: 1fr auto auto;
   align-items: center;
   gap: 8px;
+  border-bottom: 1px solid #00000080;
 }

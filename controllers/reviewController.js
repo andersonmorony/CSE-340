@@ -36,4 +36,43 @@ revController.saveReview = async (req, res, next) => {
   });
 };
 
+revController.builUpdateHtml = async (req, res, next) => {
+  const navHtml = await utilities.getNav();
+  const { review_id } = req.params;
+  const {review_text, inv_make, inv_model, inv_year, review_date } = await reviewModel.getReviewByInvId(review_id)
+  const title = `Edit the  ${inv_year} ${inv_make} ${inv_model} review`
+  res.render("./review/edit-review", {
+    title,
+    navHtml,
+    review_text,
+    review_id,
+    review_dateFormated: utilities.formatDate(review_date),
+    errors: null
+  });
+}
+
+revController.updateReview = async(req, res, next) => {
+  const { review_text, review_id } = req.body;
+  const result = await reviewModel.updateReview(review_id, review_text);
+  if(result) {
+    req.flash("notice", "Review updated");
+    res.redirect("/review/edit/" + review_id);
+    return;
+  }
+  
+  req.flash("notice", "Sorry, the updated failed.");
+  const navHtml = await utilities.getNav();
+  const {inv_make, inv_model, inv_year, review_date } = await reviewModel.getReviewByInvId(review_id)
+  const title = `Edit the  ${inv_year} ${inv_make} ${inv_model} review`
+  res.render("./review/edit-review", {
+    title,
+    navHtml,
+    review_text,
+    review_id,
+    review_dateFormated: utilities.formatDate(review_date),
+    errors: null
+  });
+
+}
+
 module.exports = revController;
